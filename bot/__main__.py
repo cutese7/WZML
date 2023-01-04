@@ -48,10 +48,10 @@ now=datetime.now(timezone(f'{timez}'))
 def stats(update, context):
     if ospath.exists('.git'):
         if config_dict['EMOJI_THEME']:
-            last_commit = check_output(["git log -1 --date=short --pretty=format:'%cd \n<b>├</b> 🛠<b>From:</b> %cr'"], shell=True).decode()
+            last_commit = check_output(["git log -1 --date=short --pretty=format:'%cd \n<b></b> 🛠<b>From:</b> %cr'"], shell=True).decode()
             botVersion = check_output(["git log -1 --date=format:v%y.%m%d.%H%M --pretty=format:%cd"], shell=True).decode()
         else:
-            last_commit = check_output(["git log -1 --date=short --pretty=format:'%cd \n<b>├  From:</b> %cr'"], shell=True).decode()
+            last_commit = check_output(["git log -1 --date=short --pretty=format:'%cd \n<b>  From:</b> %cr'"], shell=True).decode()
             botVersion = check_output(["git log -1 --date=format:v%y.%m%d.%H%M --pretty=format:%cd"], shell=True).decode()
     else:
         botVersion = 'No UPSTREAM_REPO'
@@ -78,30 +78,30 @@ def stats(update, context):
     mem_a = get_readable_file_size(memory.available)
     mem_u = get_readable_file_size(memory.used)
     if config_dict['EMOJI_THEME']:
-            stats = f'<b>╭─《🌐 BOT STATISTICS 🌐》</b>\n' \
-                    f'<b>├ 🛠 Updated On: </b>{last_commit}\n'\
-                    f'<b>├ ⌛ Uptime: </b>{currentTime}\n'\
-                    f'<b>├ 🤖 Version: </b>{version}\n'\
-                    f'<b>├ 🟢 OS Uptime: </b>{osUptime}\n'\
-                    f'<b>├ 🖥️ CPU:</b> [{progress_bar(cpuUsage)}] {cpuUsage}%\n'\
-                    f'<b>├ 🎮 RAM:</b> [{progress_bar(mem_p)}] {mem_p}%\n'\
-                    f'<b>├ 💾 Disk:</b> [{progress_bar(disk)}] {disk}%\n'\
-                    f'<b>├ 💿 Disk Free:</b> {free}\n'\
-                    f'<b>├ 🔺 Upload Data:</b> {sent}\n'\
-                    f'<b>╰ 🔻 Download Data:</b> {recv}\n\n'
+            stats = f'<b>╭──《🌐 ʙᴏᴛ ꜱᴛᴀᴛɪꜱᴛɪᴄꜱ 🌐》</b>\n' \
+                    f'<b>├  🛠 Updated On: </b>{last_commit}\n'\
+                    f'<b>├  ⏳ ʙᴏᴛ ᴜᴘᴛɪᴍᴇ :</b>{currentTime}\n'\
+                    f'<b>├  🤖 Version: </b>{version}\n'\
+                    f'<b>├  🧭 ᴏꜱ  ᴜᴘᴛɪᴍᴇ : </b>{osUptime}\n'\
+                    f'<b>├  🖥️ CPU:</b> [{progress_bar(cpuUsage)}] {cpuUsage}%\n'\
+                    f'<b>├  🎮 RAM:</b> [{progress_bar(mem_p)}] {mem_p}%\n'\
+                    f'<b>├  💾 ᴅɪꜱᴋ ꜱᴘᴀᴄᴇ : [{progress_bar(disk)}] {disk}%\n'\
+                    f'<b>├  💿 Disk Free:</b> {free}\n'\
+                    f'<b>├  🔺 Upload Data:</b> {sent}\n'\
+                    f'<b>╰──🔻 Download Data:</b> {recv}\n\n'
 
     else:
-            stats = f'<b>╭─《🌐 BOT STATISTICS 🌐》</b>\n' \
-                    f'<b>├  Updated On: </b>{last_commit}\n'\
-                    f'<b>├  Uptime: </b>{currentTime}\n'\
-                    f'<b>├  Version: </b>{version}\n'\
-                    f'<b>├  OS Uptime: </b>{osUptime}\n'\
-                    f'<b>├  CPU:</b> [{progress_bar(cpuUsage)}] {cpuUsage}%\n'\
-                    f'<b>├  RAM:</b> [{progress_bar(mem_p)}] {mem_p}%\n'\
-                    f'<b>├  Disk:</b> [{progress_bar(disk)}] {disk}%\n'\
-                    f'<b>├  Disk Free:</b> {free}\n'\
-                    f'<b>├  Upload Data:</b> {sent}\n'\
-                    f'<b>╰  Download Data:</b> {recv}\n\n'
+            stats = f'<b>《🌐 BOT STATISTICS 🌐》</b>\n' \
+                    f'<b>  Updated On: </b>{last_commit}\n'\
+                    f'<b>  Uptime: </b>{currentTime}\n'\
+                    f'<b>  Version: </b>{version}\n'\
+                    f'<b>  OS Uptime: </b>{osUptime}\n'\
+                    f'<b>  CPU:</b> [{progress_bar(cpuUsage)}] {cpuUsage}%\n'\
+                    f'<b>  RAM:</b> [{progress_bar(mem_p)}] {mem_p}%\n'\
+                    f'<b>  Disk:</b> [{progress_bar(disk)}] {disk}%\n'\
+                    f'<b>  Disk Free:</b> {free}\n'\
+                    f'<b>  Upload Data:</b> {sent}\n'\
+                    f'<b> Download Data:</b> {recv}\n\n'
 
 
 
@@ -124,23 +124,23 @@ def stats(update, context):
         user_task = 'No Limit Set' if USER_TASKS_LIMIT == '' else f'{USER_TASKS_LIMIT} Tasks/user'
 
         if config_dict['EMOJI_THEME']: 
-            stats += f'<b>╭─《 ⚠️ BOT LIMITS ⚠️ 》</b>\n'\
-                     f'<b>├ 🧲 Torrent/Direct: </b>{torrent_direct}\n'\
-                     f'<b>├ 🔐 Zip/Unzip: </b>{zip_unzip}\n'\
-                     f'<b>├ 🔷 Leech: </b>{leech_limit}\n'\
-                     f'<b>├ ♻️ Clone: </b>{clone_limit}\n'\
-                     f'<b>├ 🔰 Mega: </b>{mega_limit}\n'\
-                     f'<b>├ 💣 Total Tasks: </b>{total_task}\n'\
-                     f'<b>╰ 🔫 User Tasks: </b>{user_task}\n\n'
+            stats += f'<b>《 ⚠️ BOT LIMITS ⚠️ 》</b>\n'\
+                     f'<b> 🧲 Torrent/Direct: </b>{torrent_direct}\n'\
+                     f'<b> 🔐 Zip/Unzip: </b>{zip_unzip}\n'\
+                     f'<b> 🔷 Leech: </b>{leech_limit}\n'\
+                     f'<b> ♻️ Clone: </b>{clone_limit}\n'\
+                     f'<b> 🔰 Mega: </b>{mega_limit}\n'\
+                     f'<b> 💣 Total Tasks: </b>{total_task}\n'\
+                     f'<b>🔫 User Tasks: </b>{user_task}\n\n'
         else: 
-            stats += f'<b>╭─《 ⚠️ BOT LIMITS ⚠️ 》</b>\n'\
-                     f'<b>├  Torrent/Direct: </b>{torrent_direct}\n'\
-                     f'<b>├  Zip/Unzip: </b>{zip_unzip}\n'\
-                     f'<b>├  Leech: </b>{leech_limit}\n'\
-                     f'<b>├  Clone: </b>{clone_limit}\n'\
-                     f'<b>├  Mega: </b>{mega_limit}\n'\
-                     f'<b>├  Total Tasks: </b>{total_task}\n'\
-                     f'<b>╰  User Tasks: </b>{user_task}\n\n'
+            stats += f'<b>《 ⚠️ BOT LIMITS ⚠️ 》</b>\n'\
+                     f'<b>  Torrent/Direct: </b>{torrent_direct}\n'\
+                     f'<b>  Zip/Unzip: </b>{zip_unzip}\n'\
+                     f'<b>  Leech: </b>{leech_limit}\n'\
+                     f'<b>  Clone: </b>{clone_limit}\n'\
+                     f'<b>  Mega: </b>{mega_limit}\n'\
+                     f'<b>  Total Tasks: </b>{total_task}\n'\
+                     f'<b> User Tasks: </b>{user_task}\n\n'
 
     if config_dict['PICS']:
         sendPhoto(stats, context.bot, update.message, rchoice(config_dict['PICS']))
@@ -498,7 +498,7 @@ def main():
     dispatcher.add_handler(stats_handler)
     dispatcher.add_handler(log_handler)
     updater.start_polling(drop_pending_updates=IGNORE_PENDING_REQUESTS)
-    LOGGER.info("💥𝐁𝐨𝐭 𝐒𝐭𝐚𝐫𝐭𝐞𝐝❗")
+    LOGGER.info("⭐Bot Started⭐")
     signal(SIGINT, exit_clean_up)
 
 app.start()

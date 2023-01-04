@@ -243,7 +243,7 @@ def start_clone(listelem):
                 if config_dict['EMOJI_THEME']:
                     cc = f'\n<b>╰👤 #Clone_By: </b>{tag}\n\n'
                 else:
-                    cc = f'\n<b>╰ #Clone_By: </b>{tag}\n\n'
+                    cc = f'\n<b>#Clone_By: </b>{tag}\n\n'
                 if config_dict['PICS']:
                     sendPhoto(result + cc, bot, message, rchoice(config_dict['PICS']), button)
                 else:
@@ -286,7 +286,7 @@ def start_clone(listelem):
                         if config_dict['EMOJI_THEME']:
                             cc = f'\n<b>╰👤 #Clone_By: </b>{tag}\n\n'
                         else:
-                            cc = f'\n<b>╰ #Clone_By: </b>{tag}\n\n'
+                            cc = f'\n<b>#Clone_By: </b>{tag}\n\n'
                         if config_dict['PICS']:
                             sendPhoto(result + cc, bot, message, rchoice(config_dict['PICS']), button)
                         else:
@@ -304,13 +304,13 @@ def start_clone(listelem):
     user_id = message.from_user.id
     tag = f"@{message.from_user.username}"
     if config_dict['EMOJI_THEME']:
-        slmsg = f"╭🗂️ Name: <{config_dict['NAME_FONT']}>{escape(name)}</{config_dict['NAME_FONT']}>\n"
-        slmsg += f"├📐 Size: {get_readable_file_size(size)}\n"
+        slmsg = f"🗂️ Name: <{config_dict['NAME_FONT']}>{escape(name)}</{config_dict['NAME_FONT']}>\n"
+        slmsg += f"📐 Size: {get_readable_file_size(size)}\n"
         slmsg += f"╰👥 Added by: {tag} | <code>{user_id}</code>\n\n"
     else:
-        slmsg = f"╭ Name: <{config_dict['NAME_FONT']}>{escape(name)}</{config_dict['NAME_FONT']}>\n"
-        slmsg += f"├ Size: {get_readable_file_size(size)}\n"
-        slmsg += f"╰ Added by: {tag} | <code>{user_id}</code>\n\n"
+        slmsg = f" Name: <{config_dict['NAME_FONT']}>{escape(name)}</{config_dict['NAME_FONT']}>\n"
+        slmsg += f" Size: {get_readable_file_size(size)}\n"
+        slmsg += f"Added by: {tag} | <code>{user_id}</code>\n\n"
     if 'link_logs' in user_data:
         try:
             upper = f"‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒\n"
@@ -335,7 +335,7 @@ def start_clone(listelem):
     if config_dict['EMOJI_THEME']:
         cc = f'\n<b>╰👤 #Clone_By: </b>{tag}\n\n'
     else:
-        cc = f'\n<b>╰ #Clone_By: </b>{tag}\n\n'
+        cc = f'\n<b>#Clone_By: </b>{tag}\n\n'
     if button.build_menu(2) in ["cancelled", ""]:
         sendMessage(f"{tag} {result}", bot, message)
     else:
