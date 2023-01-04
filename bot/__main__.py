@@ -124,14 +124,14 @@ def stats(update, context):
         user_task = 'No Limit Set' if USER_TASKS_LIMIT == '' else f'{USER_TASKS_LIMIT} Tasks/user'
 
         if config_dict['EMOJI_THEME']: 
-            stats += f'<b>《 ⚠️ BOT LIMITS ⚠️ 》</b>\n'\
-                     f'<b> 🧲 Torrent/Direct: </b>{torrent_direct}\n'\
-                     f'<b> 🔐 Zip/Unzip: </b>{zip_unzip}\n'\
-                     f'<b> 🔷 Leech: </b>{leech_limit}\n'\
-                     f'<b> ♻️ Clone: </b>{clone_limit}\n'\
-                     f'<b> 🔰 Mega: </b>{mega_limit}\n'\
-                     f'<b> 💣 Total Tasks: </b>{total_task}\n'\
-                     f'<b>🔫 User Tasks: </b>{user_task}\n\n'
+            stats += f'<b>╭──《 ⚠️ BOT LIMITS ⚠️ 》</b>\n'\
+                     f'<b>├  🧲 Torrent/Direct: </b>{torrent_direct}\n'\
+                     f'<b>├  🔐 Zip/Unzip: </b>{zip_unzip}\n'\
+                     f'<b>├  🔷 Leech: </b>{leech_limit}\n'\
+                     f'<b>├  ♻️ Clone: </b>{clone_limit}\n'\
+                     f'<b>├  🔰 Mega: </b>{mega_limit}\n'\
+                     f'<b>├  💣 Total Tasks: </b>{total_task}\n'\
+                     f'<b>╰──🔫 User Tasks: </b>{user_task}\n\n'
         else: 
             stats += f'<b>《 ⚠️ BOT LIMITS ⚠️ 》</b>\n'\
                      f'<b>  Torrent/Direct: </b>{torrent_direct}\n'\
